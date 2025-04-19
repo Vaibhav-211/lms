@@ -10,10 +10,10 @@ const lectureSchema = new mongoose.Schema({
 }, {_id:false})
 
 const chapterSchema = new mongoose.Schema({
-    chapterId: {type:String, requird:true},
-    chapterOrder: {type:Number, requird:true},
-    chapterTitle: {type:String, requird:true},
-    chapterContent: {lectureSchema},
+    chapterId: {type:String, required:true},
+    chapterOrder: {type:Number, required:true},
+    chapterTitle: {type:String, required:true},
+    chapterContent: [lectureSchema],
 }, {_id:false})
 
 const cousreSchema = new mongoose.Schema({
