@@ -26,7 +26,9 @@ export const userEnrolledCourses = async(req,res)=>{
     try {
         const userId = req.auth.userId
         const userData = await User.findById(userId).populate('enrolledCourses')
-
+        if (!userData) {
+            return res.json({success: false, message: 'User not found'})
+        }
         res.json({success : true, enrolledCourses: userData.enrolledCourses})
     } catch (error) {
         res.json({success:false,message:error.message})
@@ -94,9 +96,7 @@ export const updateUserCourseProgress = async (req,res)=>{
         const userId = req.auth.userId
         const {courseId, lectureId} = req.body
 
-        const progressData = await CourseProgress.findOne({
-            userId,courseId
-        })
+        const progressData = await CourseProgress.findOne({userId,courseId})
 
         if(progressData){
             if(progressData.lectureCompleted.includes(lectureId)){
@@ -125,7 +125,7 @@ export const updateUserCourseProgress = async (req,res)=>{
 export const getUserCourseProgress = async (req,res)=> {
     try {
         const userId = req.auth.userId
-        const {courseId, lectureId} = req.body
+        const {courseId} = req.body
 
         const progressData = await CourseProgress.findOne({
             userId,courseId
@@ -156,7 +156,7 @@ export const userRating = async (req,res) =>{
         }
 
         const user = await User.findById(userId);
-        if(!user || user.enrolledCourses.includes(courseId)){
+        if(!user || !user.enrolledCourses.includes(courseId)){
             return res.json({succcess:false , message: 'User has not purchased this course'})
         }
 

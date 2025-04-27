@@ -101,7 +101,7 @@ const AddCourse = () => {
         coursePrice: Number(coursePrice),
         discount:Number(discount),
         courseContent: chapters,
-        
+        isPublished: true
       }
 
       const formData = new FormData()
