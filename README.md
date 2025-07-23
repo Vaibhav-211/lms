@@ -1,16 +1,28 @@
-Command for frontend 
-npm run dev
+# 📘 Learnova - Learning Management System (LMS)
 
-for backend
-npm run server
+**Learnova** is a full-stack Learning Management System that enables users to enroll in courses, track progress, and rate content. It offers both student and admin panels, supports file uploads, and integrates secure authentication and payment systems.
 
-languages used:-
-tailwind css, 
-MERN (mongoose, express, React , Node)
+## 🚀 Features
 
-dependencies used :
+- 🔐 User signup & login with secure password hashing (Bcrypt)
+- 📚 Browse and enroll in courses
+- 🧠 Track learning progress
+- ⭐ Course ratings & reviews
+- 📤 Upload course videos and materials (Multer)
+- 💳 Stripe integration for paid courses
+- 🧑‍💼 Admin panel for course and user management
+- ⚡ Smooth routing using React Router DOM
+- 📈 User dashboard with enrolled courses & progress
 
-for frontend:- @clerk/clerk-react,@tailwindcss/vite,axios,humanize-duration,quill,rc-progress,react,react-dom,react-router-dom,react-simple-star-rating,react-toastify,react-youtube,tailwindcss,uniqid
+---
 
+## 🛠 Tech Stack
 
-for backend:- @clerk/express,cloudinary,cors,dotenv,express,mongoose,multer,nodemon,stripe,svix
+| Layer        | Tech Used                          |
+|--------------|-------------------------------------|
+| **Frontend** | React.js, Axios, React Router DOM   |
+| **Backend**  | Node.js, Express.js                |
+| **Database** | MongoDB + Mongoose                 |
+| **Auth**     | Bcrypt                             |
+| **File Uploads** | Multer                        |
+| **Payments** | Stripe API                         |
