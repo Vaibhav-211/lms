@@ -20,9 +20,8 @@ const Navbar = () => {
         navigate('/educator')
         return;
       }
-      const token = getToken()
+      const token = await getToken()
       const {data} = await axios.get(backendUrl + '/api/educator/update-role', {headers : {Authorization: `Bearer ${token}`}})
-
       if(data.success){
         setIsEducator(true)
         toast.success(data.message)

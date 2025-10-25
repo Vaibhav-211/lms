@@ -3,23 +3,22 @@ import Course from '../models/Course.js'
 import {v2 as cloudinary} from 'cloudinary'
 import { Purchase } from '../models/purchase.js'
 import User from '../models/User.js'
-//update role to educator
-
+// update role to educator
 export const updateRoleToEducator = async (req,res)=>{
+    console.log(req.auth)
     try {
-        const userId = req.auth.userId
-
+        const userId = req.auth.userId;
         await clerkClient.users.updateUserMetadata(userId,{
             publicMetadata:{
                 role: 'educator',
             }
         })
-
         res.json({success:true,message: "You can publish a course now"})
     } catch (error) {
         res.json({success:false,message:error.message})
     }
 }
+
 
 //add new course
 export const addCourse = async (req,res) =>{
